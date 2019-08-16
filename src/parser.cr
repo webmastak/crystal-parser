@@ -26,10 +26,9 @@ end
 uri = URI.parse(host)
 response = HTTP::Client.get(host)
 Myhtml::Parser.new(response.body).css(tag).each do |node|
-  File.open("data/#{uri.host}-#{tipe}-#{Time.now.to_s("%Y-%m-%d")}", "a") do |file| 
-    string = node.attributes[att]? 
+  File.open("data/#{uri.host}-#{tipe}-#{Time.local.to_s("%Y-%m-%d")}", "a") do |file|
+    string = node.attributes[att]?
     outline = string.to_s.includes?(host) ? "#{string}\n" : "#{host}#{string}\n"
     file << outline
   end
 end
-
