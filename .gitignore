@@ -1,5 +1,5 @@
+/bin/
 /lib/
 /data/*
 .shards/
-parser
 shard.lock
